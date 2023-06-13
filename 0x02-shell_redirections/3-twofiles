@@ -2,3 +2,4 @@
 cat /etc/passwd
 echo
 cat /etc/hosts
+
