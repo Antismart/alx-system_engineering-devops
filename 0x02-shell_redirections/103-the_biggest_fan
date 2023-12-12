@@ -1,0 +1,2 @@
+#!/bin/bash
+awk 'NR > 1 { hosts[$1]++ } END { for (host in hosts) print host }' "$1" | sort | uniq -c | sort -nr | head -n 11 | awk '{print $2}'
