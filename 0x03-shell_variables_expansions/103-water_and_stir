@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "obase=27;ibase=27;$((27#"$WATER"+23#"$STIR"))" | bc
+tr '0-9a-zA-Z' '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' <<< "$(echo $WATER | tr -cd 'a-z')" + tr '0-9a-zA-Z' '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' <<< "$(echo $STIR | tr -cd 'a-z')" | tr -d '0-9a-v' | tr 'wxyz' '0123'
