@@ -1,27 +1,2 @@
 #!/bin/bash
-
-# Function to convert a number from one base to another
-convert_base() {
-    local number=$1
-    local from_base=$2
-    local to_base=$3
-
-    echo "ibase=$from_base;obase=$to_base;$number" | bc
-}
-
-# Given strings
-WATER="$WATER"
-STIR="$STIR"
-
-# Convert WATER and STIR from their respective bases to base 10
-water_decimal=$(convert_base "$WATER" 27 10)
-stir_decimal=$(convert_base "$STIR" 23 10)
-
-# Add the two numbers in base 10
-result_decimal=$((water_decimal + stir_decimal))
-
-# Convert the result from base 10 to base 27 (bestchol)
-result_bestchol=$(convert_base "$result_decimal" 10 27)
-
-# Print the result in base bestchol
-echo "$result_bestchol"
+echo "obase=27;ibase=27;$((27#"$WATER"+23#"$STIR"))" | bc
